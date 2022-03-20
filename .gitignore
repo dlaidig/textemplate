@@ -1,0 +1,6 @@
+# SPDX-FileCopyrightText: 2022 Daniel Laidig <daniel@laidig.info>
+#
+# SPDX-License-Identifier: MIT
+/.idea/
+/textemplate.egg-info/
+__pycache__/
