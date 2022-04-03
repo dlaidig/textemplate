@@ -4,6 +4,7 @@
 import os
 import json
 import sys
+import pathlib
 
 import yaml
 import argparse
@@ -24,11 +25,11 @@ def createEnv(path_or_loader=None, **kwargs):
     template = env.from_string(templateString)
     template.render(**data)  # or use renderTemplate
 
-    :param path_or_loader: a directory path to load templates from (as string), a jinja loader or None (default) to only
-    support loading templates from string
+    :param path_or_loader: a directory path to load templates from (as string or Path), a jinja loader or None (default)
+    to only support loading templates from string
     :return: a jinja2 Environment
     """
-    if isinstance(path_or_loader, str):
+    if isinstance(path_or_loader, (str, pathlib.Path)):
         path_or_loader = jinja2.FileSystemLoader(path_or_loader)
 
     env = latex.jinja2.make_env(loader=path_or_loader, **kwargs)
